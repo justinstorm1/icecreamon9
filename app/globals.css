@@ -5,7 +5,15 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-    --font-heading: var(--font-sans);
+    --font-heading: var(--font-display);
+    --font-display: var(--font-display);
+    --color-awning-pink: var(--awning-pink);
+    --color-awning-green: var(--awning-green);
+    --color-sun: var(--sun);
+    --color-sun-foreground: var(--sun-foreground);
+    --color-grape: var(--grape);
+    --color-grape-foreground: var(--grape-foreground);
+    --color-neon: var(--neon);
     --font-sans: var(--font-sans);
     --color-sidebar-ring: var(--sidebar-ring);
     --color-sidebar-border: var(--sidebar-border);
@@ -47,60 +55,27 @@
     --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+/* Neon-night palette: the site is dark only. */
 :root {
-    --background: oklch(1 0 0);
-    --foreground: oklch(0.145 0 0);
-    --card: oklch(1 0 0);
-    --card-foreground: oklch(0.145 0 0);
-    --popover: oklch(1 0 0);
-    --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.496 0.265 301.924);
-    --primary-foreground: oklch(0.977 0.014 308.299);
-    --secondary: oklch(0.967 0.001 286.375);
-    --secondary-foreground: oklch(0.21 0.006 285.885);
-    --muted: oklch(0.97 0 0);
-    --muted-foreground: oklch(0.556 0 0);
-    --accent: oklch(0.97 0 0);
-    --accent-foreground: oklch(0.205 0 0);
-    --destructive: oklch(0.577 0.245 27.325);
-    --border: oklch(0.922 0 0);
-    --input: oklch(0.922 0 0);
-    --ring: oklch(0.708 0 0);
-    --chart-1: oklch(0.827 0.119 306.383);
-    --chart-2: oklch(0.627 0.265 303.9);
-    --chart-3: oklch(0.558 0.288 302.321);
-    --chart-4: oklch(0.496 0.265 301.924);
-    --chart-5: oklch(0.438 0.218 303.724);
-    --radius: 0.625rem;
-    --sidebar: oklch(0.985 0 0);
-    --sidebar-foreground: oklch(0.145 0 0);
-    --sidebar-primary: oklch(0.558 0.288 302.321);
-    --sidebar-primary-foreground: oklch(0.977 0.014 308.299);
-    --sidebar-accent: oklch(0.97 0 0);
-    --sidebar-accent-foreground: oklch(0.205 0 0);
-    --sidebar-border: oklch(0.922 0 0);
-    --sidebar-ring: oklch(0.708 0 0);
-}
-
-.dark {
-    --background: oklch(0.145 0 0);
-    --foreground: oklch(0.985 0 0);
-    --card: oklch(0.205 0 0);
-    --card-foreground: oklch(0.985 0 0);
-    --popover: oklch(0.205 0 0);
-    --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.438 0.218 303.724);
-    --primary-foreground: oklch(0.977 0.014 308.299);
-    --secondary: oklch(0.274 0.006 286.033);
-    --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.269 0 0);
-    --muted-foreground: oklch(0.708 0 0);
-    --accent: oklch(0.269 0 0);
-    --accent-foreground: oklch(0.985 0 0);
+    --radius: 1rem;
+    --background: oklch(0.16 0.05 298);
+    --foreground: oklch(0.96 0.015 310);
+    --card: oklch(0.21 0.065 298);
+    --card-foreground: oklch(0.96 0.015 310);
+    --popover: oklch(0.21 0.065 298);
+    --popover-foreground: oklch(0.96 0.015 310);
+    --primary: oklch(0.76 0.17 345);
+    --primary-foreground: oklch(0.18 0.06 300);
+    --secondary: oklch(0.86 0.16 95);
+    --secondary-foreground: oklch(0.2 0.06 300);
+    --muted: oklch(0.25 0.06 298);
+    --muted-foreground: oklch(0.76 0.05 310);
+    --accent: oklch(0.3 0.09 330);
+    --accent-foreground: oklch(0.9 0.08 345);
     --destructive: oklch(0.704 0.191 22.216);
-    --border: oklch(1 0 0 / 10%);
-    --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.556 0 0);
+    --border: oklch(1 0 0 / 12%);
+    --input: oklch(1 0 0 / 16%);
+    --ring: oklch(0.7 0.17 345);
     --chart-1: oklch(0.827 0.119 306.383);
     --chart-2: oklch(0.627 0.265 303.9);
     --chart-3: oklch(0.558 0.288 302.321);
@@ -114,6 +89,14 @@
     --sidebar-accent-foreground: oklch(0.985 0 0);
     --sidebar-border: oklch(1 0 0 / 10%);
     --sidebar-ring: oklch(0.556 0 0);
+
+    --awning-pink: oklch(0.66 0.21 5);
+    --awning-green: oklch(0.62 0.16 150);
+    --sun: oklch(0.86 0.16 95);
+    --sun-foreground: oklch(0.32 0.08 150);
+    --grape: oklch(0.26 0.12 298);
+    --grape-foreground: oklch(0.97 0.02 310);
+    --neon: oklch(0.74 0.22 350);
 }
 
 @layer base {
@@ -130,3 +113,35 @@
     @apply font-sans;
     }
 }
+
+@layer components {
+  /* The pink-and-green scalloped awning from the storefront. */
+  .awning {
+    height: 1.75rem;
+    background:
+      radial-gradient(circle at 50% 0, transparent 0.62rem, var(--background) 0.66rem) 0 100% / 2.5rem 0.7rem repeat-x,
+      repeating-linear-gradient(90deg, var(--awning-pink) 0 2.5rem, var(--awning-green) 2.5rem 5rem);
+  }
+}
+
+@utility neon-text {
+  text-shadow:
+    0 0 0.35em color-mix(in oklch, var(--neon), transparent 40%),
+    0 0 1.2em color-mix(in oklch, var(--neon), transparent 65%);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .marquee-track {
+    animation: marquee 60s linear infinite;
+  }
+  .marquee:hover .marquee-track {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
