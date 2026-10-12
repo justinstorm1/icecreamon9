@@ -15,12 +15,12 @@ export const site = {
   },
   instagram: {
     handle: "@icecreamon_9",
-    url: "https://www.instagram.com/icecreamon_9/",
+    url: "https://www.instagram.com/icecreamonnine/",
   },
   facebook: {
     name: "Ice Cream on 9",
     // TODO: swap in the page's direct URL.
-    url: "https://www.facebook.com/search/top?q=Ice%20Cream%20on%209%20Howell",
+    url: "https://www.facebook.com/people/Ice-Cream-on-9/61590275267671/",
   },
   stats: {
     homemadeFlavors: 148,
